@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import thunk from 'redux-thunk'
 import user from './userReducer'
 import form from './formReducer'
 
@@ -12,7 +13,7 @@ const rootReducer = combineReducers({
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware())
+  composeWithDevTools(applyMiddleware(thunk))
 )
 
 store.subscribe(() => {
